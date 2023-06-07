@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Symptom Checker</title>
+  <style>
+    /* CSS styles for the symptom checker */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .container {
+      width: 600px;
+      margin: 0 auto;
+    }
+    
+    .chat-container {
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 400px;
+      overflow-y: scroll;
+    }
+    
+    .chat-message {
+      margin-bottom: 10px;
+    }
+    
+    .user-message {
+      color: blue;
+    }
+    
+    .bot-message {
+      color: green;
+    }
+    
+    .input-container {
+      margin-top: 20px;
+      display: flex;
+    }
+    
+    .input-field {
+      flex: 1;
+    }
+    
+    .input-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Symptom Checker</h1>
+    <div class="chat-container" id="chatContainer"></div>
+    <div class="input-container">
+      <input type="text" class="input-field" id="userInput" placeholder="Enter your message...">
+      <button class="input-button" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  
+  <script>
+    // JavaScript code for the chatbot functionality
+    function sendMessage() {
+      var userInput = document.getElementById("userInput").value;
+      var chatContainer = document.getElementById("chatContainer");
+      
+      var userMessage = document.createElement("div");
+      userMessage.className = "chat-message user-message";
+      userMessage.innerHTML = "<strong>You:</strong> " + userInput;
+      chatContainer.appendChild(userMessage);
+      
+      // Your code for processing the user input and generating a response from the bot
+      
+      var botMessage = document.createElement("div");
+      botMessage.className = "chat-message bot-message";
+      botMessage.innerHTML = "<strong>Bot:</strong> This is a bot response.";
+      chatContainer.appendChild(botMessage);
+      
+      // Scroll to the bottom of the chat container
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+      
+      // Clear the input field
+      document.getElementById("userInput").value = "";
+    }
+  </script>
+</body>
+</html>
